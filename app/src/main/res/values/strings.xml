@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DeliveryApp</string>
+    <string name="gastado_en_restaurantes">Gastado en restaurantes</string>
+    <string name="error">error</string>
+    <string name="ruta_uri">com.svalero.deliveryapp.fileprovider</string>
+
+    <string name="product_name">Nombre del producto</string>
+    <string name="no_products">No hay productos disponibles</string>
+    <string name="summary">Lista de la compra: %1d productos = %2f €</string>
+    <string name="product_name_mandatory">Debes escribir el nombre del producto</string>
+    <string name="product_added">Producto %1s añadido</string>
+</resources>
