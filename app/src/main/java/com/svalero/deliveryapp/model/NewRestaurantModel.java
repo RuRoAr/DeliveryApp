@@ -53,4 +53,24 @@ public class NewRestaurantModel implements NewRestaurantContract.Model {
             }
         });
     }
+
+    @Override
+    public void modifyRestaurant(long restaurantId, Restaurant restaurant, OnModifyRestaurantListener listener) {
+        DeliveryApiInterface api = DeliveryApi.buildInstance();
+        Call<Restaurant> callRestaurants = api.modifyRestaurant(restaurantId, restaurant);
+
+        callRestaurants.enqueue(new Callback<Restaurant>() {
+            @Override
+            public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
+                Restaurant restaurants = response.body();
+                listener.onModifyRestaurantSuccess(restaurants);
+            }
+
+            @Override
+            public void onFailure(Call<Restaurant> call, Throwable t) {
+                listener.onModifyRestaurantError("Se ha producido un error");
+                t.printStackTrace();
+            }
+        });
+    }
 }

@@ -1,16 +1,17 @@
 package com.svalero.deliveryapp.domain;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.io.Serializable;
-
 @Entity//todo esto es a raiz del room
-public class Restaurant implements Serializable {
+public class Restaurant implements Parcelable {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private long id;
     @ColumnInfo
     private String name;
     @ColumnInfo
@@ -58,12 +59,49 @@ public class Restaurant implements Serializable {
     }
 
 
+    protected Restaurant(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        address = in.readString();
+        capacity = in.readInt();
+        operative = in.readByte() != 0;
+        mediumPrice = in.readFloat();
+        category = in.readString();
+    }
 
-    public int getId() {
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt((int) id);
+        dest.writeString(name);
+        dest.writeString(address);
+        dest.writeInt(capacity);
+        dest.writeByte((byte) (operative ? 1 : 0));
+        dest.writeFloat(mediumPrice);
+        dest.writeString(category);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
+        @Override
+        public Restaurant createFromParcel(Parcel in) {
+            return new Restaurant(in);
+        }
+
+        @Override
+        public Restaurant[] newArray(int size) {
+            return new Restaurant[size];
+        }
+    };
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
