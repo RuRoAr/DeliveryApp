@@ -11,8 +11,8 @@ public interface RestaurantListContract {
 
 
     interface Model {
-        double getTotalCost(Context context);
-        List<Restaurant> loadAllRestaurants(Context context);
+        double getTotalCost();
+        List<Restaurant> loadAllRestaurants();
 
     }
 

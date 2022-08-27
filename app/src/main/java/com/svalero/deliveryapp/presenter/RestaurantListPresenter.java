@@ -14,16 +14,16 @@ public class RestaurantListPresenter implements RestaurantListContract.Presenter
     private RestaurantListModel model;
 
     public RestaurantListPresenter(RestaurantListView view) {
-        model = new RestaurantListModel();
+        model = new RestaurantListModel(view.getApplicationContext());
         this.view = view;
     }
 
     @Override
     public void loadAllRestaurants() {
-        List <Restaurant> restaurants = model.loadAllRestaurants(view.getApplicationContext());
+        List <Restaurant> restaurants = model.loadAllRestaurants();
         view.listAllRestaurants(restaurants);
 
-        double totalCost = model.getTotalCost(view.getApplicationContext());
+        double totalCost = model.getTotalCost();
         view.showTotalCost(totalCost);
     }
 }
