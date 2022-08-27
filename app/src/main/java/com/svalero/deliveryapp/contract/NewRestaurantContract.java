@@ -10,7 +10,11 @@ public interface NewRestaurantContract {
 
     interface Model {
 
-        void addRestaurant(Restaurant restaurant);
+        interface OnAddRestaurantListener {
+            void onAddRestaurantSuccess(Restaurant newRestaurant);
+            void onAddRestaurantError(String message);
+        }
+        void addRestaurant(Restaurant restaurant, OnAddRestaurantListener listener);
 
 
     }
@@ -22,8 +26,7 @@ public interface NewRestaurantContract {
     }
 
     interface Presenter {
-    void addRestaurant(String name,String address,String typeFood,String qualification,
-                       String recomendation,String mediumPrice,String goBack);
+    void addRestaurant( String name, String address, String capacity, boolean operative, String mediumPrice, String category);
 
 
     }
