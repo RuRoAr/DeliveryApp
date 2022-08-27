@@ -12,11 +12,16 @@ import java.util.List;
 
 public class RestaurantListModel implements RestaurantListContract.Model {
 
+    private Context context;
+
+    public RestaurantListModel(Context context){
+        this.context = context;
+    }
 
 
     @Override
-    public double getTotalCost(Context context) {
-            List <Restaurant> restaurants =loadAllRestaurants(context);
+    public double getTotalCost() {
+            List <Restaurant> restaurants =loadAllRestaurants();
 
         return restaurants.stream()//coge la lista de restaurantes lo combierte en stream
                 .map(Restaurant::getMediumPrice)// paso a tener una lista de preciosMedios
@@ -28,7 +33,7 @@ public class RestaurantListModel implements RestaurantListContract.Model {
 
 
     @Override
-    public List<Restaurant> loadAllRestaurants(Context context) {
+    public List<Restaurant> loadAllRestaurants() {
         AppDatabase db = Room.databaseBuilder(context
                 ,AppDatabase.class, "restaurants").allowMainThreadQueries()
                 .fallbackToDestructiveMigration().build();

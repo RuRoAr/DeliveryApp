@@ -7,6 +7,6 @@
     <string name="product_name">Nombre del producto</string>
     <string name="no_products">No hay productos disponibles</string>
     <string name="summary">Lista de la compra: %1d productos = %2f €</string>
-    <string name="product_name_mandatory">Debes escribir el nombre del producto</string>
-    <string name="product_added">Producto %1s añadido</string>
+    <string name="restaurant_name_mandatory">Debes escribir el nombre del restaurante</string>
+    <string name="restaurant_added">Restaurante %1s añadido</string>
 </resources>

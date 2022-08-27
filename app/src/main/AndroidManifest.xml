@@ -10,12 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light">
         <activity
+            android:name=".view.RestaurantDetailView"
+            android:exported="false" />
+        <activity
+            android:name=".view.NewRestaurantView"
+            android:exported="false" />
+        <activity
             android:name=".view.PhotoCameraView"
             android:exported="false" />
-
         <activity
             android:name=".view.RestaurantListView"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

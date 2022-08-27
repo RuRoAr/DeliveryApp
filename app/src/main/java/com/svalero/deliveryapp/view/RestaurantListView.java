@@ -1,13 +1,18 @@
 package com.svalero.deliveryapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.svalero.deliveryapp.R;
+import com.svalero.deliveryapp.contract.NewRestaurantContract;
 import com.svalero.deliveryapp.contract.RestaurantListContract;
 import com.svalero.deliveryapp.domain.Restaurant;
 import com.svalero.deliveryapp.presenter.RestaurantListPresenter;
@@ -31,6 +36,14 @@ public class RestaurantListView extends AppCompatActivity implements RestaurantL
 
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        presenter.loadAllRestaurants();
+    }
+
     private void inicializeRestaurantList(){
 
         restaurantList = new ArrayList<>();
@@ -53,8 +66,20 @@ public class RestaurantListView extends AppCompatActivity implements RestaurantL
         tvSummary.setText(getString(R.string.gastado_en_restaurantes) + totalCost + " €");
 
     }
+// infla en menu action bar menu/actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_main, menu);
+        return  true;
+    }
 
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.new_restaurant){
+            Intent intent = new Intent(this, NewRestaurantView.class);
+            startActivity(intent);
+            return  true;
+        }
+        return false;
+    }
 }
