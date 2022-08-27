@@ -44,7 +44,7 @@
                 android:hint="address" />
 
             <EditText
-                android:id="@+id/restaurant_type_food"
+                android:id="@+id/restaurant_capacity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -52,21 +52,13 @@
                 android:hint="type food" />
 
             <EditText
-                android:id="@+id/restaurant_qualification"
+                android:id="@+id/restaurant_operative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="qualification"
                 android:inputType="numberDecimal" />
-
-            <EditText
-                android:id="@+id/restaurrant_recommendation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="recommendation" />
 
             <EditText
                 android:id="@+id/restaurant_medium_price"
@@ -78,12 +70,18 @@
                 android:inputType="numberDecimal" />
 
             <EditText
-                android:id="@+id/restaurant_go_back"
+                android:id="@+id/restaurant_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="go back" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Operative" />
 
         </LinearLayout>
 

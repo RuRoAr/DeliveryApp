@@ -8,24 +8,21 @@ import java.util.List;
 
 public interface RestaurantListContract {
 
-
-
     interface Model {
-        double getTotalCost();
-        List<Restaurant> loadAllRestaurants();
-
+        interface OnLoadRestaurantsListener {
+            void onLoadRestaurantsSuccess(List<Restaurant> restaurants);
+            void onLoadRestaurantsError(String message);
+        }
+        void loadAllRestaurants(OnLoadRestaurantsListener listener);
     }
 
     interface View {
-
-        void showTotalCost(double totalCost);
-        void listAllRestaurants(List <Restaurant> restaurants);
-
+        void listAllRestaurants(List<Restaurant> restaurants);
+        void showErrorMessage(String message);
     }
 
     interface Presenter {
         void loadAllRestaurants();
-
     }
 }
 

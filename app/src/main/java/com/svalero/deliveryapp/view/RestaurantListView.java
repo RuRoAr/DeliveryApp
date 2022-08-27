@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -61,11 +62,16 @@ public class RestaurantListView extends AppCompatActivity implements RestaurantL
     }
 
     @Override
-    public void showTotalCost(double totalCost) {
-        TextView tvSummary = findViewById(R.id.summary);
-        tvSummary.setText(getString(R.string.gastado_en_restaurantes) + totalCost + " €");
-
+    public void showErrorMessage(String message) {
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }
+
+    //    @Override
+//    public void showTotalCost(double totalCost) {
+//        TextView tvSummary = findViewById(R.id.summary);
+//        tvSummary.setText(getString(R.string.gastado_en_restaurantes) + totalCost + " €");
+//
+//    }
 // infla en menu action bar menu/actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.svalero.deliveryapp.R;
 import com.svalero.deliveryapp.contract.NewRestaurantContract;
-import com.svalero.deliveryapp.domain.Restaurant;
 import com.svalero.deliveryapp.presenter.NewRestaurantPresenter;
 
 public class NewRestaurantView extends AppCompatActivity implements NewRestaurantContract.View {
@@ -27,35 +27,31 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
 
         EditText etName = findViewById(R.id.restaurant_name);
         EditText etAddress = findViewById(R.id.restaurant_address);
-        EditText etTypeFood = findViewById(R.id.restaurant_type_food);
-        EditText etQualification = findViewById(R.id.restaurant_qualification);
-        EditText etRecomendation = findViewById(R.id.restaurrant_recommendation);
+        EditText etCapacity = findViewById(R.id.restaurant_capacity);
+        CheckBox checkOperative = findViewById(R.id.checkBox);
         EditText etMediumPrice = findViewById(R.id.restaurant_medium_price);
-        EditText etGoBack = findViewById(R.id.restaurant_go_back);
+        EditText etCategoty = findViewById(R.id.restaurant_category);
 
 
         String name = etName.getText().toString();
         String address = etAddress.getText().toString();
-        String typeFood = etTypeFood.getText().toString();
-        String qualification =  etQualification.getText().toString();
-        String recomendation = etRecomendation.getText().toString();
+        String capacity = etCapacity.getText().toString();
+        boolean operative = checkOperative.isChecked();
         String mediumPrice = etMediumPrice.getText().toString();
-        String goBack = etGoBack.getText().toString();
+        String category = etCategoty.getText().toString();
 
 
 
-        presenter.addRestaurant(name,address,typeFood,qualification,
-                recomendation,mediumPrice,goBack);
+        presenter.addRestaurant(name,address,capacity,operative,mediumPrice,category);
 
         Toast.makeText(this, getString(R.string.restaurant_added, name), Toast.LENGTH_SHORT).show();
 
         etName.setText("");
         etAddress.setText("");
-        etGoBack.setText("");
+        etCapacity.setText("");
         etMediumPrice.setText("");
-        etRecomendation.setText("");
-        etTypeFood.setText("");
-        etQualification.setText("");
+        etCategoty.setText("");
+        checkOperative.setChecked(false);
         etName.requestFocus();
 
 

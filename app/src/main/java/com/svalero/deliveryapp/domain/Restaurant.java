@@ -16,15 +16,14 @@ public class Restaurant implements Serializable {
     @ColumnInfo
     private String address;
     @ColumnInfo
-    private String typeFood;
+    private int capacity;
     @ColumnInfo
-    private float qualification;
-    @ColumnInfo
-    private String recommendation;
-    @ColumnInfo
+    private  boolean operative;
+    @ColumnInfo(name = "medium_price")
     private float mediumPrice;
     @ColumnInfo
-    private String goBack;
+    private String category;
+
 
 //    @Id
 //    private String id;
@@ -49,15 +48,16 @@ public class Restaurant implements Serializable {
 //    private String category;
 
 
-    public Restaurant(String name, String address, String typeFood, float qualification, String recommendation, float mediumPrice, String goBack) {
+    public Restaurant(String name, String address, int capacity, boolean operative, float mediumPrice, String category) {
         this.name = name;
         this.address = address;
-        this.typeFood = typeFood;
-        this.qualification = qualification;
-        this.recommendation = recommendation;
+        this.capacity = capacity;
+        this.operative = operative;
         this.mediumPrice = mediumPrice;
-        this.goBack = goBack;
+        this.category = category;
     }
+
+
 
     public int getId() {
         return id;
@@ -65,15 +65,6 @@ public class Restaurant implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-
-    public String getGoBack() {
-        return goBack;
-    }
-
-    public void setGoBack(String goBack) {
-        this.goBack = goBack;
     }
 
     public String getName() {
@@ -92,28 +83,20 @@ public class Restaurant implements Serializable {
         this.address = address;
     }
 
-    public String getTypeFood() {
-        return typeFood;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setTypeFood(String typeFood) {
-        this.typeFood = typeFood;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
-    public float getQualification() {
-        return qualification;
+    public boolean isOperative() {
+        return operative;
     }
 
-    public void setQualification(float qualification) {
-        this.qualification = qualification;
-    }
-
-    public String getRecommendation() {
-        return recommendation;
-    }
-
-    public void setRecommendation(String recommendation) {
-        this.recommendation = recommendation;
+    public void setOperative(boolean operative) {
+        this.operative = operative;
     }
 
     public float getMediumPrice() {
@@ -124,14 +107,24 @@ public class Restaurant implements Serializable {
         this.mediumPrice = mediumPrice;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
-        return " Nombre : " + name + "\n" +
-                " Direccion : " + address + "\n" +
-                " Tipo de comida : " + typeFood + "\n" +
-                " Calificacion : " + qualification + "\n" +
-                " Plato a recomedar : " + recommendation + "\n" +
-                " mediumPrice : " + mediumPrice + "\n" +
-                " Si vuelvo pediré... : " + goBack + "\n";
+        return "Restaurant{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", capacity=" + capacity +
+                ", operative=" + operative +
+                ", mediumPrice=" + mediumPrice +
+                ", category='" + category + '\'' +
+                '}';
     }
 }
