@@ -6,8 +6,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.svalero.deliveryapp.domain.Cocktail;
-
 import java.util.List;
 
 @Dao
