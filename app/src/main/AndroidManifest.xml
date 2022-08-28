@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.svalero.deliveryapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.MapsActivity"
+            android:exported="false" />
         <activity
             android:name=".view.RestaurantDetailView"
             android:exported="false" />
@@ -31,6 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

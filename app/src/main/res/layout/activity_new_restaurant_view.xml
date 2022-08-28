@@ -52,15 +52,6 @@
                 android:hint="type food" />
 
             <EditText
-                android:id="@+id/restaurant_operative"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="qualification"
-                android:inputType="numberDecimal" />
-
-            <EditText
                 android:id="@+id/restaurant_medium_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
