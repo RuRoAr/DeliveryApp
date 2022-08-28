@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.NewOrderView">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/order_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/order_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="weight"
+                android:inputType="numberDecimal"/>
+
+            <EditText
+                android:id="@+id/order_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Time"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/order_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Distance"
+                android:inputType="number" />
+
+
+
+            <CheckBox
+                android:id="@+id/checkBox_ready"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ready" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addOrder"
+        android:text="add order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="15dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
