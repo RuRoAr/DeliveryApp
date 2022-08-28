@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeliveryApp"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.NewOrderView"
+            android:exported="false" />
+        <activity
+            android:name=".view.OrderListView"
+            android:exported="false" />
         <activity
             android:name=".view.RestaurantDetailView"
             android:exported="false" />
@@ -32,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

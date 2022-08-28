@@ -10,6 +10,10 @@
         android:id="@+id/add_restaurant"
         android:icon="@android:drawable/ic_menu_add"
         android:title= "New Restaurant" />
+    <item
+        android:id="@+id/show_order"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title= "Show Orders" />
 
 
 </menu>

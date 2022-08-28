@@ -21,7 +21,7 @@ import com.svalero.deliveryapp.presenter.NewRestaurantPresenter;
 public class NewRestaurantView extends AppCompatActivity implements NewRestaurantContract.View {
 
 
-    private int SELECT_PICTURE_RESULT = 1;
+
     private NewRestaurantPresenter presenter;
     private Constants.Action action;
     private Restaurant restaurant;
