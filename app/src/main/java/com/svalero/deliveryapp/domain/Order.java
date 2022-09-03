@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Order implements Parcelable {
 
-    @PrimaryKey(autoGenerate = true)
-    private long id;
+    @PrimaryKey
+    private String id;
     @ColumnInfo
     private long price;
     @ColumnInfo
@@ -26,7 +26,7 @@ public class Order implements Parcelable {
 
 
     protected Order(Parcel in) {
-        id = in.readLong();
+        id = in.readString();
         price = in.readLong();
         weight = in.readDouble();
         ready = in.readByte() != 0;
@@ -46,11 +46,11 @@ public class Order implements Parcelable {
         }
     };
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -122,7 +122,7 @@ public class Order implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(id);
+        parcel.writeString(id);
         parcel.writeLong(price);
         parcel.writeDouble(weight);
         parcel.writeByte((byte) (ready ? 1 : 0));

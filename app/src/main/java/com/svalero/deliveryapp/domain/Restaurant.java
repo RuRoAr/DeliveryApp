@@ -3,6 +3,7 @@ package com.svalero.deliveryapp.domain;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,7 +11,8 @@ import androidx.room.PrimaryKey;
 @Entity//todo esto es a raiz del room
 public class Restaurant implements Parcelable {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
+    @NonNull
     private long id;
     @ColumnInfo
     private String name;
@@ -60,7 +62,7 @@ public class Restaurant implements Parcelable {
 
 
     protected Restaurant(Parcel in) {
-        id = in.readInt();
+        id = Long.parseLong(in.readString());
         name = in.readString();
         address = in.readString();
         capacity = in.readInt();
@@ -69,9 +71,13 @@ public class Restaurant implements Parcelable {
         category = in.readString();
     }
 
+    public Restaurant() {
+
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt((int) id);
+        dest.writeString(String.valueOf(id));
         dest.writeString(name);
         dest.writeString(address);
         dest.writeInt(capacity);

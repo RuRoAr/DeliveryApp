@@ -1,5 +1,6 @@
 package com.svalero.deliveryapp.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -12,9 +13,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.svalero.deliveryapp.R;
+import com.svalero.deliveryapp.api.DeliveryApi;
+import com.svalero.deliveryapp.api.DeliveryApiInterface;
 import com.svalero.deliveryapp.contract.RestaurantListContract;
 import com.svalero.deliveryapp.domain.Restaurant;
 import com.svalero.deliveryapp.presenter.RestaurantListPresenter;
@@ -22,11 +26,15 @@ import com.svalero.deliveryapp.presenter.RestaurantListPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+
 public class RestaurantListView extends AppCompatActivity implements RestaurantListContract.View {// el lisener es para escuchar el click de la pantalla {
 
     private RestaurantListPresenter presenter;
     private ArrayAdapter<Restaurant> restaurantsAdapter;//objeto android que hace que el lv liste todo el arrayList
     public List<Restaurant> restaurantList;// necesito tener una lista para los Restaurantes, lista de la BBDD
+    private String restaurantId;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,22 +124,41 @@ public class RestaurantListView extends AppCompatActivity implements RestaurantL
         int position = info.position;
 
         switch (item.getItemId()) {
-            case R.id.add_restaurant:
+            case R.id.modify_restaurant:
                   Intent intent = new Intent(this, NewRestaurantView.class);
                   intent.putExtra("restaurant", restaurantList.get(position));
                   intent.putExtra("ACTION" , "PUT");
                   startActivity(intent);
                 return true;
             case R.id.restaurant_detail:
-                //  Intent intent4 = new Intent(this, ListWine.class);
-                // startActivity(intent4);
+                Intent intent1 = new Intent(this, NewRestaurantView.class);
                 return true;
             case R.id.delete_restaurant:
-                // Intent intent3 = new Intent(this, ListCocktail.class);
-                //  startActivity(intent3);
 
+                Restaurant restaurant = restaurantList.get(position);
+                restaurantId = String.valueOf(restaurant.getId());
+                deleteRestaurant(restaurantId);
+                presenter.loadAllRestaurants();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    private void deleteRestaurant(String restaurantId) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.are_you_sure_delete_restaurant)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.deleteRestaurant(restaurantId);
+                        presenter.loadAllRestaurants();
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        builder.create().show();
     }
 }

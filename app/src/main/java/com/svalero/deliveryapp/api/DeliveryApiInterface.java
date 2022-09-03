@@ -26,7 +26,7 @@ public interface DeliveryApiInterface {
 
     // TODO
     @DELETE("restaurant/{restaurantId}")
-    Call<Void> deleteRestaurant(@Path("restaurantId") long restaurantId);
+    Call<Void> deleteRestaurant(@Path("restaurantId") String restaurantId);
 
     @PUT("restaurant/{restaurantId}")
     Call<Restaurant> modifyRestaurant(@Path("productId") long restaurantId, @Body Restaurant restaurant);
@@ -42,7 +42,7 @@ public interface DeliveryApiInterface {
     @POST("orders")
     Call<Order> addOrder(@Body Order order);
 
-    @PUT("order/{ordertId}")
-    Call<Order> modifyOrder(@Path("productId") long orderId, @Body Order order);
+    @PUT("order/{orderId}")
+    Call<Order> modifyOrder(@Path("productId") String orderId, @Body Order order);
 
 }

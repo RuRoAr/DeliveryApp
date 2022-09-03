@@ -9,4 +9,7 @@
     <string name="summary">Lista de la compra: %1d productos = %2f €</string>
     <string name="restaurant_name_mandatory">Debes escribir el nombre del restaurante</string>
     <string name="restaurant_added">Restaurante %1s añadido</string>
+    <string name="are_you_sure_delete_restaurant">Are you sure</string>
+    <string name="yes">Yes</string>
+    <string name="no">NO</string>
 </resources>
