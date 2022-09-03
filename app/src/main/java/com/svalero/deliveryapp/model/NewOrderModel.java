@@ -6,7 +6,6 @@ import com.svalero.deliveryapp.api.DeliveryApi;
 import com.svalero.deliveryapp.api.DeliveryApiInterface;
 import com.svalero.deliveryapp.contract.NewOrderContract;
 import com.svalero.deliveryapp.domain.Order;
-import com.svalero.deliveryapp.domain.Restaurant;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +40,7 @@ public class NewOrderModel implements NewOrderContract.Model {
     }
 
     @Override
-    public void modifyOrder(long orderId, Order order, OnModifyOrderListener listener) {
+    public void modifyOrder(String orderId, Order order, OnModifyOrderListener listener) {
         DeliveryApiInterface api = DeliveryApi.buildInstance();
         Call<Order> callOrders = api.modifyOrder(orderId, order);
 
@@ -59,5 +58,6 @@ public class NewOrderModel implements NewOrderContract.Model {
             }
         });
     }
+
 
 }

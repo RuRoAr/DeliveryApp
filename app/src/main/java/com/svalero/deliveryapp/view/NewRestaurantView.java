@@ -37,11 +37,7 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
             restaurant = getIntent().getParcelableExtra("restaurant");
             fillRestaurantDetails();
         }
-
-
         presenter = new NewRestaurantPresenter(this);
-
-
     }
 
     private void fillRestaurantDetails() {
@@ -67,7 +63,7 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
         EditText etCapacity = findViewById(R.id.restaurant_capacity);
         CheckBox checkOperative = findViewById(R.id.checkBox);
         EditText etMediumPrice = findViewById(R.id.restaurant_medium_price);
-        EditText etCategoty = findViewById(R.id.restaurant_category);
+        EditText etCategory = findViewById(R.id.restaurant_category);
 
 
         String name = etName.getText().toString();
@@ -75,13 +71,13 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
         String capacity = etCapacity.getText().toString();
         boolean operative = checkOperative.isChecked();
         String mediumPrice = etMediumPrice.getText().toString();
-        String category = etCategoty.getText().toString();
+        String category = etCategory.getText().toString();
 
         if (action == POST)
             presenter.addRestaurant(name ,address ,capacity,operative, mediumPrice, category);
-        else
-            presenter.modifyRestaurant(restaurant.getId(), name ,address ,capacity,operative, mediumPrice, category );
-        presenter.addRestaurant(name,address,capacity,operative,mediumPrice,category);
+//        else
+//            presenter.modifyRestaurant(restaurant.getId(), name ,address ,capacity,operative, mediumPrice, category );
+//        presenter.addRestaurant(name,address,capacity,operative,mediumPrice,category);
 
 
 
@@ -89,7 +85,7 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
         etAddress.setText("");
         etCapacity.setText("");
         etMediumPrice.setText("");
-        etCategoty.setText("");
+        etCategory.setText("");
         checkOperative.setChecked(false);
         etName.requestFocus();
 

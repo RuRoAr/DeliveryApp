@@ -2,15 +2,10 @@ package com.svalero.deliveryapp.model;
 
 import android.content.Context;
 
-import androidx.room.Room;
-
 import com.svalero.deliveryapp.api.DeliveryApi;
 import com.svalero.deliveryapp.api.DeliveryApiInterface;
 import com.svalero.deliveryapp.contract.NewRestaurantContract;
-import com.svalero.deliveryapp.database.AppDatabase;
 import com.svalero.deliveryapp.domain.Restaurant;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

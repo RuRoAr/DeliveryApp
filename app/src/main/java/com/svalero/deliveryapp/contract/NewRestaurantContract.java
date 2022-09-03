@@ -1,10 +1,6 @@
 package com.svalero.deliveryapp.contract;
 
-import android.content.Context;
-
 import com.svalero.deliveryapp.domain.Restaurant;
-
-import java.util.List;
 
 public interface NewRestaurantContract {
 
@@ -34,7 +30,7 @@ public interface NewRestaurantContract {
 
     interface Presenter {
     void addRestaurant( String name, String address, String capacity, boolean operative, String mediumPrice, String category);
-    void modifyRestaurant( long restaurantId,String name, String address, String capacity, boolean operative, String mediumPrice, String category);
+    void modifyRestaurant(long restaurantId, String name, String address, String capacity, boolean operative, String mediumPrice, String category);
 
 
     }

@@ -8,6 +8,7 @@ import java.util.List;
 public interface OrderListContract {
 
     interface Model {
+
         interface OnLoadOrdersListener {
             void onLoadOrdersSuccess(List<Order> restaurants);
             void onLoadOrdersError(String message);

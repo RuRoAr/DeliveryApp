@@ -1,8 +1,5 @@
 package com.svalero.deliveryapp.presenter;
 
-import android.widget.Toast;
-
-import com.svalero.deliveryapp.R;
 import com.svalero.deliveryapp.contract.NewRestaurantContract;
 import com.svalero.deliveryapp.domain.Restaurant;
 import com.svalero.deliveryapp.model.NewRestaurantModel;

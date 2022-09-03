@@ -6,11 +6,11 @@ import androidx.room.Room;
 
 import com.svalero.deliveryapp.api.DeliveryApi;
 import com.svalero.deliveryapp.api.DeliveryApiInterface;
-import com.svalero.deliveryapp.database.AppDatabase;
 import com.svalero.deliveryapp.contract.RestaurantListContract;
+import com.svalero.deliveryapp.domain.Order;
 import com.svalero.deliveryapp.domain.Restaurant;
+import com.svalero.deliveryapp.view.RestaurantListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,8 +21,29 @@ public class RestaurantListModel implements RestaurantListContract.Model {
 
     private Context context;
 
+
     public RestaurantListModel(Context context){
         this.context = context;
+    }
+
+
+    @Override
+    public void deleteRestaurant(OnDeleteRestaurantListener listener, String restaurantId) {
+        DeliveryApiInterface api = DeliveryApi.buildInstance();
+        Call<Void> callRestaurants = api.deleteRestaurant(restaurantId);
+        callRestaurants.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                listener.onDeleteRestaurantSuccess();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onDeleteRestaurantError("Se ha producido un error");
+                t.printStackTrace();
+            }
+        });
     }
 
     @Override

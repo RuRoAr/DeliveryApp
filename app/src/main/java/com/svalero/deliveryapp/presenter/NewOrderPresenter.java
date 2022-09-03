@@ -55,7 +55,7 @@ public class NewOrderPresenter implements NewOrderContract.Presenter, NewOrderCo
     }
 
     @Override
-    public void modifyOrder(long orderId,String price, String weight, boolean ready, String time, String distance) {
+    public void modifyOrder(String orderId, String price, String weight, boolean ready, String time, String distance) {
         if (!validData( price,  weight,  ready,  time, distance))
             view.showMessage("Error al validar la informacion");
 

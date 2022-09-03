@@ -1,7 +1,6 @@
 package com.svalero.deliveryapp.contract;
 
 import com.svalero.deliveryapp.domain.Order;
-import com.svalero.deliveryapp.domain.Restaurant;
 
 public interface NewOrderContract {
 
@@ -17,7 +16,7 @@ public interface NewOrderContract {
             void onModifyOrderSuccess(Order newOrder);
             void onModifyOrderError(String message);
         }
-        void modifyOrder(long orderId, Order order, OnModifyOrderListener listener);
+        void modifyOrder(String orderId, Order order, OnModifyOrderListener listener);
 
 
     }
@@ -31,7 +30,7 @@ public interface NewOrderContract {
 
     interface Presenter {
     void addOrder( String price, String weight, boolean ready, String time, String distance);
-    void modifyOrder( long orderId,String price, String weight, boolean ready, String time, String distance);
+    void modifyOrder(String orderId, String price, String weight, boolean ready, String time, String distance);
 
 
     }

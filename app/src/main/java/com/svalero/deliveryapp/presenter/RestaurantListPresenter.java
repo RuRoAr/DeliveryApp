@@ -8,7 +8,8 @@ import com.svalero.deliveryapp.view.RestaurantListView;
 
 import java.util.List;
 
-public class RestaurantListPresenter implements RestaurantListContract.Presenter, RestaurantListContract.Model.OnLoadRestaurantsListener{
+public class RestaurantListPresenter implements RestaurantListContract.Presenter, RestaurantListContract.Model.OnLoadRestaurantsListener ,
+RestaurantListContract.Model.OnDeleteRestaurantListener{
 
     private RestaurantListView view;
     private RestaurantListModel model;
@@ -24,6 +25,13 @@ public class RestaurantListPresenter implements RestaurantListContract.Presenter
     }
 
     @Override
+    public void deleteRestaurant(String restaurantId) {
+        model.deleteRestaurant( this, restaurantId);
+
+    }
+
+
+    @Override
     public void onLoadRestaurantsSuccess(List<Restaurant> restaurants) {
         view.listAllRestaurants(restaurants);
     }
@@ -33,6 +41,19 @@ public class RestaurantListPresenter implements RestaurantListContract.Presenter
         view.showErrorMessage(message);
 
     }
+
+    @Override
+    public void onDeleteRestaurantSuccess() {
+        view.showErrorMessage("Borrado");
+    }
+
+    @Override
+    public void onDeleteRestaurantError(String message) {
+
+        view.showErrorMessage("Algo ha fallado");
+    }
+
+
 
 //    @Override
 //    public void loadAllRestaurants() {

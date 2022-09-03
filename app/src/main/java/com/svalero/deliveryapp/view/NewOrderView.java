@@ -15,9 +15,9 @@ import com.svalero.deliveryapp.R;
 import com.svalero.deliveryapp.api.Constants;
 import com.svalero.deliveryapp.contract.NewOrderContract;
 import com.svalero.deliveryapp.domain.Order;
-import com.svalero.deliveryapp.domain.Restaurant;
+
 import com.svalero.deliveryapp.presenter.NewOrderPresenter;
-import com.svalero.deliveryapp.presenter.NewRestaurantPresenter;
+
 
 public class NewOrderView extends AppCompatActivity implements NewOrderContract.View {
     private NewOrderPresenter presenter;
@@ -74,9 +74,9 @@ public class NewOrderView extends AppCompatActivity implements NewOrderContract.
 
         if (action == POST)
             presenter.addOrder(price,  weight,  ready,  time, distance);
-        else
-            presenter.modifyOrder(order.getId(), price,  weight,  ready,  time, distance );
-        presenter.addOrder(price,  weight,  ready,  time, distance);
+//        else
+//            presenter.modifyOrder(order.getId(), price,  weight,  ready,  time, distance );
+//        presenter.addOrder(price,  weight,  ready,  time, distance);
 
 
 
