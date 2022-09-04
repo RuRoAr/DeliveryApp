@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DeliveryApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".OperativeRestaurantView"
+            android:name=".view.RiderListView"
             android:exported="false" />
         <activity
             android:name=".view.NewOrderView"

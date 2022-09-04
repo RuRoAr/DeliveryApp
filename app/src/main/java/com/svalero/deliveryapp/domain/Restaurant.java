@@ -28,27 +28,7 @@ public class Restaurant implements Parcelable {
     private String category;
 
 
-//    @Id
-//    private String id;
-//    @Field
-//    @NotNull
-//    @NotEmpty
-//    private String name;
-//    @Field
-//    @NotNull
-//    @NotEmpty
-//    private String address;
-//    @Field
-//    @PositiveOrZero
-//    private int capacity;
-//    @Field
-//    private  boolean operative;
-//    @Field(name = "medium_price")
-//    @PositiveOrZero
-//    private float mediumPrice;
-//    @Field
-//    @NotEmpty
-//    private String category;
+
 
 
     public Restaurant(String name, String address, int capacity, boolean operative, float mediumPrice, String category) {

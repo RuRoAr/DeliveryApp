@@ -75,10 +75,9 @@ public class NewRestaurantView extends AppCompatActivity implements NewRestauran
 
         if (action == POST)
             presenter.addRestaurant(name ,address ,capacity,operative, mediumPrice, category);
-//        else
-//            presenter.modifyRestaurant(restaurant.getId(), name ,address ,capacity,operative, mediumPrice, category );
-//        presenter.addRestaurant(name,address,capacity,operative,mediumPrice,category);
-
+        else
+            presenter.modifyRestaurant(restaurant.getId(), name ,address ,capacity,operative, mediumPrice, category );
+     //   presenter.addRestaurant(name,address,capacity,operative,mediumPrice,category);
 
 
         etName.setText("");
