@@ -5,7 +5,8 @@ import com.svalero.deliveryapp.domain.Restaurant;
 import com.svalero.deliveryapp.model.NewRestaurantModel;
 import com.svalero.deliveryapp.view.NewRestaurantView;
 
-public class NewRestaurantPresenter implements NewRestaurantContract.Presenter, NewRestaurantContract.Model.OnAddRestaurantListener,
+public class NewRestaurantPresenter implements NewRestaurantContract.Presenter,
+        NewRestaurantContract.Model.OnAddRestaurantListener,
         NewRestaurantContract.Model.OnModifyRestaurantListener{
 
     private NewRestaurantModel model;
@@ -27,9 +28,6 @@ public class NewRestaurantPresenter implements NewRestaurantContract.Presenter, 
 
 
     }
-
-
-
     @Override
     public void onAddRestaurantSuccess(Restaurant newRestaurant) {
         view.showMessage("ok");
@@ -44,7 +42,6 @@ public class NewRestaurantPresenter implements NewRestaurantContract.Presenter, 
     public void modifyRestaurant(long restaurantId, String name, String address, String capacity, boolean operative, String mediumPrice, String category) {
         if (!validData(name,address, capacity, operative, mediumPrice, category))
             view.showMessage("Error al validar la informacion");
-
         Restaurant restaurant = new Restaurant(name, address, Integer.parseInt(capacity),
                 operative, Float.parseFloat(mediumPrice), category);
         restaurant.setId(restaurantId);
