@@ -10,7 +10,8 @@ import com.svalero.deliveryapp.view.OrderListView;
 
 import java.util.List;
 
-public class OrderListPresenter implements OrderListContract.Presenter, OrderListContract.Model.OnLoadOrdersListener {
+public class OrderListPresenter implements OrderListContract.Presenter,
+        OrderListContract.Model.OnLoadOrdersListener {
     private OrderListView view;
     private OrderListModel model;
 

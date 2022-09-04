@@ -2,6 +2,7 @@ package com.svalero.deliveryapp.api;
 
 import com.svalero.deliveryapp.domain.Order;
 import com.svalero.deliveryapp.domain.Restaurant;
+import com.svalero.deliveryapp.domain.Rider;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface DeliveryApiInterface {
     Call<Void> deleteRestaurant(@Path("restaurantId") String restaurantId);
 
     @PUT("restaurant/{restaurantId}")
-    Call<Restaurant> modifyRestaurant(@Path("productId") long restaurantId, @Body Restaurant restaurant);
+    Call<Restaurant> modifyRestaurant(@Path("restaurantId") long restaurantId, @Body Restaurant restaurant);
 
 
 
@@ -43,6 +44,22 @@ public interface DeliveryApiInterface {
     Call<Order> addOrder(@Body Order order);
 
     @PUT("order/{orderId}")
-    Call<Order> modifyOrder(@Path("productId") String orderId, @Body Order order);
+    Call<Order> modifyOrder(@Path("orderId") String orderId, @Body Order order);
+
+
+    @GET("riders")
+    Call<List<Rider>> getRiders();
+
+    @GET("rider/{riderId}")
+    Call<Rider> getRider(@Path("riderId") long riderId);
+
+    @POST("riders")
+    Call<Rider> addRider(@Body Rider rider);
+
+    @PUT("rider/{riderId}")
+    Call<Rider> modifyRider(@Path("riderId") String riderId, @Body Rider rider);
+
+
+
 
 }

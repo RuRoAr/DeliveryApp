@@ -72,39 +72,7 @@ public class OrderListView extends AppCompatActivity implements OrderListContrac
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 
     }
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.context, menu);
-    }
 
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-
-
-        AdapterView.AdapterContextMenuInfo info =
-                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        int position = info.position;
-
-        switch (item.getItemId()) {
-            case R.id.add_restaurant:
-                Intent intent = new Intent(this, NewOrderView.class);
-                intent.putExtra("order", orderList.get(position));
-                intent.putExtra("ACTION" , "PUT");
-                startActivity(intent);
-                return true;
-            case R.id.restaurant_detail:
-                //  Intent intent4 = new Intent(this, ListWine.class);
-                // startActivity(intent4);
-                return true;
-            case R.id.delete_restaurant:
-                // Intent intent3 = new Intent(this, ListCocktail.class);
-                //  startActivity(intent3);
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

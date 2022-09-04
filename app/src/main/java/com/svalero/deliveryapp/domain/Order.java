@@ -12,6 +12,7 @@ import androidx.room.PrimaryKey;
 public class Order implements Parcelable {
 
     @PrimaryKey
+    @ColumnInfo
     private String id;
     @ColumnInfo
     private long price;

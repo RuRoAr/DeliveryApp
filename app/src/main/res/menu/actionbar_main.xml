@@ -14,6 +14,10 @@
         android:id="@+id/show_order"
         android:icon="@android:drawable/ic_menu_add"
         android:title= "Show Orders" />
+    <item
+        android:id="@+id/show_rider"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title= "Show Riders" />
 
 
 

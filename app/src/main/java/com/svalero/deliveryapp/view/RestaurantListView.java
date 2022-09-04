@@ -103,7 +103,10 @@ public class RestaurantListView extends AppCompatActivity implements RestaurantL
         }else if (item.getItemId() == R.id.show_order) {
             Intent intent = new Intent(this, OrderListView.class);
             startActivity(intent);
-        }
+        }else if (item.getItemId() == R.id.show_rider) {
+        Intent intent = new Intent(this, RiderListView.class);
+        startActivity(intent);
+    }
 
         return false;
     }
