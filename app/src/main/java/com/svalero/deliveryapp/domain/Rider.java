@@ -7,13 +7,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.io.Serializable;
-
 @Entity
 public class Rider implements Parcelable {
 
     @PrimaryKey
     private long id;
+    @ColumnInfo
+    private String dni;
     @ColumnInfo
     private String name;
     @ColumnInfo
@@ -23,26 +23,17 @@ public class Rider implements Parcelable {
     @ColumnInfo
     private int maxSpeed;
 
-    public Rider(String name, String surname, String vehicle, int maxSpeed) {
+    public Rider(String dni, String name, String surname, String vehicle, int maxSpeed) {
+        this.dni = dni;
         this.name = name;
         this.surname = surname;
         this.vehicle = vehicle;
         this.maxSpeed = maxSpeed;
     }
 
-    @Override
-    public String toString() {
-        return "Rider{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", vehicle='" + vehicle + '\'' +
-                ", maxSpeed=" + maxSpeed +
-                '}';
-    }
-
     protected Rider(Parcel in) {
         id = in.readLong();
+        dni = in.readString();
         name = in.readString();
         surname = in.readString();
         vehicle = in.readString();
@@ -61,12 +52,32 @@ public class Rider implements Parcelable {
         }
     };
 
+    @Override
+    public String toString() {
+        return "Rider{" +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", vehicle='" + vehicle + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                '}';
+    }
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getName() {
@@ -109,6 +120,7 @@ public class Rider implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(id);
+        parcel.writeString(dni);
         parcel.writeString(name);
         parcel.writeString(surname);
         parcel.writeString(vehicle);

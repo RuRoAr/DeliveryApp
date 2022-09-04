@@ -11,7 +11,8 @@ import com.svalero.deliveryapp.view.RiderListView;
 import java.util.List;
 
 public class RiderListPresenter implements RiderListContract.Presenter,
-        RiderListContract.Model.OnLoadRidersListener {
+        RiderListContract.Model.OnLoadRidersListener,
+        RiderListContract.Model.OnDeleteRiderListener {
 
     private RiderListView view;
     private RiderListModel model;
@@ -28,13 +29,28 @@ public class RiderListPresenter implements RiderListContract.Presenter,
     }
 
     @Override
+    public void deleteRider(String riderId) {
+        model.deleteRider( this, riderId);
+    }
+
+    @Override
     public void onLoadRidersSuccess(List<Rider> riders) {
         view.listAllRiders(riders);
     }
 
     @Override
     public void onLoadRidersError(String message) {
-        view.showErrorMessage(message);
+        view.showErrorMessage("algo ha fallado");
 
+    }
+
+    @Override
+    public void onDeleteRiderSuccess() {
+        view.showErrorMessage("borrado");
+    }
+
+    @Override
+    public void onDeleteRiderError(String message) {
+        view.showErrorMessage("algo ha fallado");
     }
 }

@@ -40,4 +40,25 @@ public class RiderListModel implements RiderListContract.Model {
             }
         });
     }
+
+
+
+    @Override
+    public void deleteRider(OnDeleteRiderListener listener, String riderId) {
+        DeliveryApiInterface api = DeliveryApi.buildInstance();
+        Call<Void> callRiders = api.deleteRider(riderId);
+        callRiders.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                listener.onDeleteRiderSuccess();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                listener.onDeleteRiderError("Se ha producido un error");
+                t.printStackTrace();
+            }
+        });
+    }
 }

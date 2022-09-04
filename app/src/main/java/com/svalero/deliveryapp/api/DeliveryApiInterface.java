@@ -57,9 +57,10 @@ public interface DeliveryApiInterface {
     Call<Rider> addRider(@Body Rider rider);
 
     @PUT("rider/{riderId}")
-    Call<Rider> modifyRider(@Path("riderId") String riderId, @Body Rider rider);
+    Call<Rider> modifyRider(@Path("riderId") long riderId, @Body Rider rider);
 
-
+    @DELETE("rider/{riderId}")
+    Call<Void> deleteRider(@Path("riderId") String riderId);
 
 
 }

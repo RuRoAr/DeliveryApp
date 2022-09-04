@@ -8,7 +8,8 @@ import com.svalero.deliveryapp.view.RestaurantListView;
 
 import java.util.List;
 
-public class RestaurantListPresenter implements RestaurantListContract.Presenter, RestaurantListContract.Model.OnLoadRestaurantsListener ,
+public class RestaurantListPresenter implements RestaurantListContract.Presenter,
+        RestaurantListContract.Model.OnLoadRestaurantsListener ,
 RestaurantListContract.Model.OnDeleteRestaurantListener{
 
     private RestaurantListView view;

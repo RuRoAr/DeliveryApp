@@ -12,7 +12,14 @@ public interface RiderListContract {
             void onLoadRidersSuccess(List<Rider> riders);
             void onLoadRidersError(String message);
         }
+      interface OnDeleteRiderListener {
+        ;
+        void onDeleteRiderSuccess();
+        void onDeleteRiderError(String message);
+    }
+
         void loadAllRiders(RiderListContract.Model.OnLoadRidersListener listener);
+        void deleteRider(RiderListContract.Model.OnDeleteRiderListener listener, String riderId);
     }
 
     interface View {
@@ -22,5 +29,6 @@ public interface RiderListContract {
 
     interface Presenter {
         void loadAllRiders();
+        void deleteRider(String riderId);
     }
 }
